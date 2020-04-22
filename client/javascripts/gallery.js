@@ -5,13 +5,10 @@ let controller = function() {
     "https://api.flickr.com/services/feeds/photos_public.gne?tags=";
   let suffixURL = "&format=json&jsoncallback=?";
   //get value entered by user from textbox
-  //javascript:
-  //let flickrTag = document.queryselector("input[type=text]").value;
   let flickrTag = $("input").val();
   let requestURL = prefixURL + flickrTag + suffixURL;
 
   //clear old photos
-  //javasript  document.queryselector(".photos").innerHTML = "";
   $(".photos").html("");
 
   $.getJSON(requestURL, function(flickrResponse) {
@@ -26,7 +23,7 @@ let controller = function() {
         // set the attribute to the url
         // contained in the response
         $img.attr("src", item.media.m);
-        $img.attr("width", "100");
+        $img.attr("width", "150");
 
         // attach the img tag to the main
         // photos element and then fade it in
@@ -39,8 +36,11 @@ let controller = function() {
 
 //$(document).ready(controller);
 
-//without using jQuery
+//Register the controller after the DOM is complete
 window.addEventListener("load", function() {
-  //select the button and register the handler
-  document.querySelector("button").addEventListener("click", controller);
+  //select the button
+  let button = document.querySelector("button");
+
+  //register the click handler for the button
+  button.addEventListener("click", controller);
 });
