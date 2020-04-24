@@ -12,5 +12,3 @@ Learning Outcomes</h2>
 2. Install and Configure Git using the Unix Shell
 3. Basic Git Commands (add, commit, push, clone)
 4. Github overview
-
--change
